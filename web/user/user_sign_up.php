@@ -17,9 +17,9 @@
     }
   }
   ?>
-  <h2>회원가입</h2>
+  <div>회원가입</div>
 
-  <table border="1" align=center>
+  <table border="1">
     <form action="user_sign_up_ok.php" method="POST" enctype="multipart/form-data">
       <tr>
         <th>번호</th>
@@ -37,7 +37,7 @@
         <th>사진</th>
         <td><input type="file" name="user_img" arc="image1.png"></td>
       </tr>
-      <tr>
+      <tr align="center">
         <th colspan="2"><input type="submit" value="저장하기"></th>
       </tr>
     </form>

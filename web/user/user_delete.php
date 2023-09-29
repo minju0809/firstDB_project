@@ -13,8 +13,10 @@
         $row = $result->fetch_assoc();
         $delFile = $row['user_img'];
 
-        unlink("./files/$delFile"); // 파일 삭제
-        
+        if ($delFile !== 'space.png') {
+            unlink("./files/$delFile"); // 파일 삭제
+        }
+
         $sql = "DELETE FROM user_list where user_no = $user_no"; // 레코드 삭제
         // 위에서 같은 이름의 변수여도 이미 끝났기 때문에 상관없음
         $conn->query($sql);
