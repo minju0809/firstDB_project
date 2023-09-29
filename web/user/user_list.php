@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include $_SERVER["DOCUMENT_ROOT"] . "/include/top.php" ?>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>First</title>
-</head>
-
-<body>
+<section>
+  <div>유저 목록 보기</div>
   <? include $_SERVER["DOCUMENT_ROOT"] . "/include/dbconn.php";
-  $sql = "SELECT * FROM user_list";
+  $sql = "SELECT * FROM user_list order by user_no asc";
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
@@ -26,7 +20,9 @@
         ?>
         <tr>
           <td>
-            <?= $row["user_no"] ?>
+            <a href="user_delete.php?user_no=<?= $row["user_no"] ?>">
+              <?= $row["user_no"] ?>
+            </a>
           </td>
           <td>
             <?= $row['user_pw'] ?>
@@ -35,7 +31,7 @@
             <?= $row['user_name'] ?>
           </td>
           <td>
-            <img src="./image/<?= $row['img'] ?>" alt="이미지">
+            <img src="./files/<?= $row["user_img"] ?>" alt="image" width="50">
           </td>
         </tr>
         <?
@@ -50,7 +46,6 @@
   $conn->close();
   ?>
   <a href="../index.php">홈으로</a>
+</section>
 
-</body>
-
-</html>
+<?php include $_SERVER["DOCUMENT_ROOT"] . "/include/bottom.php" ?>

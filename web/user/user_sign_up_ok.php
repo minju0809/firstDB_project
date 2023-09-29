@@ -1,50 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<?
-$user_pw = "9999";
-$user_name = "d";
-$user_img = 'space.png';
-$user_tmp_name = "12";
-?>
+<?php include $_SERVER["DOCUMENT_ROOT"] . "/include/top.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/include/dbconn.php";
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+$user_no = $_REQUEST['user_no'];
+$user_pw = isset($_REQUEST['user_pw']) ? $_REQUEST['user_pw'] : "";
+$user_name = isset($_REQUEST['user_name']) ? $_REQUEST['user_name'] : "";
 
-<body>
-    <?php include $_SERVER["DOCUMENT_ROOT"] . "/include/dbconn.php";
+// 파일 업로드 관련 정보 가져오기
+$user_img = isset($_FILES['user_img']) ? $_FILES['user_img']['name'] : "";
+$user_tmp = isset($_FILES['user_img']) ? $_FILES['user_img']['tmp_name'] : "";
 
-
-    $user_no = $_REQUEST['user_no'];
-    $user_pw = $_REQUEST['user_pw'];
-    $user_name = $_REQUEST['user_name'];
-    $user_img = $_FILES['user_img'];
-    $user_tmp = $_FILES['user_tmp_name'];
-
-    if ($user_img == '') {
-        $user_img = 'space.png';
-    } else {
-        if (file_exists("./image/$user_img")) {
-            echo "동일 파일 존재";
-            $fname = basename($user_img, strrchr($user_img, '.'));
-            $time = date("His", time());
-            $ext = strrchr($user_img, '.');
-            $user_img = $fname . "_" . $time . $ext;
-        }
-        move_uploaded_file($user_tmp, "./image/'$user_img'");
+if ($user_img == '') {
+    $user_img = 'space.png';
+} else {
+    if (file_exists("./files/$user_img")) {
+        echo "동일 파일 존재";
+        $fname = basename($user_img, strrchr($user_img, '.'));
+        echo $fname; 
+        $time = date("His", time());
+        echo $time;
+        $ext = strrchr($user_img, '.');
+        echo $ext;
+        $user_img = $fname . "_" . $time . $ext;
+        echo $user_img;
     }
+    // 파일 업로드 폴더 경로를 올바르게 설정해야 합니다.
+    move_uploaded_file($user_tmp, "./files/$user_img");
+}
 
-    $sql = "INSERT into user_list (user_no, user_pw, user_name, user_img)
+$sql = "INSERT into user_list (user_no, user_pw, user_name, user_img)
   values ('$user_no', '$user_pw', '$user_name', '$user_img')";
 
-    $conn->query($sql);
-    ?>
+$conn->query($sql);
 
-    <div>
-        <h2>저장완료</h2>
-    </div>
+?>
+
+<div>
+    <h2>저장완료</h2>
+</div>
 </body>
 
-</html>
+<a href="../index.php">홈으로</a>
+<a href="./user_list.php">유저리스트로</a>
+
+<?php include $_SERVER["DOCUMENT_ROOT"] . "/include/bottom.php";
