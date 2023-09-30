@@ -18,15 +18,15 @@
     $sql = "SELECT * FROM user_list order by user_no limit $start, $page_size";
     $sql_tc = "SELECT count(*) as tc FROM user_list order by user_no";
   } else if ($ch1 == 'user_no') {
-    $sql = "SELECT * FROM user_list where user_no like '%$ch2%'
-    order by user_no";
-    $sql_tc = "SELECT count(*) as tc FROM user_list where user_no like '%$ch2% limit $start, $page_size'
-    order by user_no";
+    $sql = "SELECT * FROM user_list where user_no like '%$ch2%' 
+    order by user_no limit $start, $page_size";
+    $sql_tc = "SELECT count(*) as tc FROM user_list where user_no like '%$ch2%' 
+    order by user_no limit $start, $page_size";
   } else if ($ch1 == 'user_name') {
-    $sql = "SELECT * FROM user_list where user_name like '%$ch2% limit $start, $page_size'
-    order by user_no";
-    $sql_tc = "SELECT count(*) as tc FROM user_list where user_name like '%$ch2%'
-    order by user_no";
+    $sql = "SELECT * FROM user_list where user_name like '%$ch2%' 
+    order by user_no limit $start, $page_size";
+    $sql_tc = "SELECT count(*) as tc FROM user_list where user_name like '%$ch2%' 
+    order by user_no limit $start, $page_size";
   }
 
   $result_tc = $conn->query($sql_tc);
