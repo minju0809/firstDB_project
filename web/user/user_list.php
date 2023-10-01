@@ -69,7 +69,7 @@
             <?= $row['user_name'] ?>
           </td>
           <td>
-            <img src="./files/<?= $row["user_img"] ?>" alt="image" width="40">
+            <img src="./user_files/<?= $row["user_img"] ?>" alt="image" width="40">
           </td>
         </tr>
         <?
@@ -111,7 +111,7 @@
       ?> 다음
       <?
     }
-    ?>
+    ?> 
     <a href="user_list.php?start=<?= $end_page ?>">마지막으로</a>
   </div>
   <?
