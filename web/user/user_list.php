@@ -1,12 +1,12 @@
 <?php include $_SERVER["DOCUMENT_ROOT"] . "/include/top.php" ?>
 
 <section>
-  <div>유저 목록 보기</div>
+  <h2>유저 목록 보기</h2>
   <? include $_SERVER["DOCUMENT_ROOT"] . "/include/dbconn.php";
 
   $ch1 = isset($_GET['ch1']) ? $_GET['ch1'] : "";
   $ch2 = isset($_GET['ch2']) ? $_GET['ch2'] : "";
-  echo "ch1 : " . $ch1 . ", ch2 : " . $ch2;
+  // echo "ch1 : " . $ch1 . ", ch2 : " . $ch2;
 
   $start = 0; // 초기값을 0으로 설정
   if (isset($_GET['start'])) {

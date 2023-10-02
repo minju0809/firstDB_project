@@ -64,5 +64,6 @@
       &emsp; <a href="<?= $path ?>/user/user_sign_up.php">회원가입</a>
       &emsp; <a href="<?= $path ?>/user/user_list.php">유저리스트</a>
       &emsp; <a href="<?= $path ?>/board/board_list.php">게시판</a>
+      &emsp; <a href="<?= $path ?>/review/review_list.php">리뷰</a>
     </div>
   </nav>
