@@ -23,7 +23,7 @@
         ?>
         <tr>
           <td>
-            <a href="review_edit.php">
+            <a href="review_edit.php?review_no=<?=$row['review_no']?>">
               <?= $row['review_no'] ?>
             </a>
           </td>

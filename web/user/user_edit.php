@@ -52,7 +52,7 @@ $row = $result->fetch_assoc();
 
     <a href="../index.php">홈으로</a>
     <a href="./user_list.php">유저리스트로</a>
-    <a href=user_delete.php?user_no=<?= $row['user_no'] ?>>삭제하기</a> &emsp;
+    <a href="user_delete.php?user_no=<?= $row['user_no'] ?>">삭제하기</a> &emsp;
 
   </div>
   <br>

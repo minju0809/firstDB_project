@@ -22,7 +22,7 @@
       </tr>
       <tr>
         <th>내용</th>
-        <td><textarea name="review_content"></textarea></td>
+        <td><input name="review_content"></input></td>
       </tr>
       <tr>
         <td colspan="2"><input type="submit" value="리뷰 등록"></td>
