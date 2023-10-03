@@ -33,8 +33,8 @@
   $row_tc = $result_tc->fetch_assoc();
 
   $total_page = ceil($row_tc['tc'] / $page_size);
-  $current_page = ($start / $page_size) + 1;
-  $end_page = ($total_page - 1) * $page_size;
+  $current_page = ceil(($start + 1) / $page_size); 
+  $end_page = ($total_page - 1) * $page_size; 
 
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
@@ -80,7 +80,7 @@
   ?>
   </table>
   <form action="user_list.php" method=GET>
-    <select name="ch1" method>
+    <select name="ch1">
       <option value="user_no">번호</option>
       <option value="user_name">이름</option>
     </select>
@@ -94,6 +94,8 @@
     <?= $total_page ?>
     현재 페이지 :
     <?= $current_page ?>
+    마지막 페이지 :
+    <?= $end_page?>
   </div>
   <div>
     <a href="user_list.php?start=0">처음으로</a>

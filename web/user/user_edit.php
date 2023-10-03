@@ -13,10 +13,13 @@ $row = $result->fetch_assoc();
   <br>
   <div align="center">
     <div>
-      상세보기
+      수정하기
     </div>
     <form action="user_update.php" method="POST" enctype="multipart/form-data">
       <table border="1">
+        <tr>
+          <td colspan=2 align=center><img src="./user_files/<?=$row['user_img']?>" alt="image"></td>
+        </tr>
         <tr>
           <td>번호</td>
           <td>
@@ -50,7 +53,6 @@ $row = $result->fetch_assoc();
 
     </form>
 
-    <a href="../index.php">홈으로</a>
     <a href="./user_list.php">유저리스트로</a>
     <a href="user_delete.php?user_no=<?= $row['user_no'] ?>">삭제하기</a> &emsp;
 
