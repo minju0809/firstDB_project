@@ -21,7 +21,7 @@
       <? while ($row = $result->fetch_assoc()) {
         ?>
         <tr>
-          <td><?=$row['board_no']?></td>
+          <td><a href="board_edit.php?board_no=<?= $row['board_no']?>"><?=$row['board_no']?></a></td>
           <td><?=$row['board_title']?></td>
           <td><?=$row['board_content']?></td>
           <td><img src="./board_files/<?=  $row['board_img'] ?>" alt="img" width=40></td>

@@ -49,7 +49,6 @@ if ($conn->error) {
 <section>
   수정완료!!
   <br>
-  <a href="../index.php">홈으로</a>
   <a href="./user_list.php">유저리스트로</a>
   <br>
 </section>
